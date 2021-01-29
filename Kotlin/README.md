@@ -212,7 +212,7 @@ fun main() {
 }
 ```
 
-#Delegation
+# Delegation
 ```kotlin
 //Delegation: this class is authorization for other class
 
@@ -325,5 +325,64 @@ fun main() {
     var ints: Collection<Int> = listOf(1,5,3,4,6)
     var maxValue = getMaxValueInCollection(ints, compare)
     println("maxValue = $maxValue")//maxValue = 6
+}
+```
+
+# Destructuring declarations
+```kotlin
+//Destructuring declarations only work with data class
+data class Customer(var name: String, var age: Int)
+
+//Function that return multiple values
+data class Result(val x: Int, val y: Int)
+fun vector(): Result{
+    return Result(1,2)
+}
+
+fun main() {
+    val customer = Customer("TEO", 20)
+    var(name, age) = customer
+    println("Name = $name, age = $age")
+
+    val customer2 = Customer("TY", 30)
+    val customers = listOf<Customer>(customer, customer2)
+    for ((name, age) in customers){
+        println("Name = $name, age = $age")
+    }
+
+    var(x1, y1) = vector()
+    println("x = $x1, y = $y1")
+
+    //map
+    var userObject = mapOf<String, Any>("name" to "Tung", "age" to 22)
+    for((key, value) in userObject){
+        println("key = $key, value = $value")
+    }
+}
+```
+
+# Ranges
+```kotlin
+fun main() {
+    for(i in 1..10)
+        print("$i ") //1 2 3 4 5 6 7 8 9 10
+    for(i in 10 downTo 1) //10 9 8 7 6 5 4 3 2 1
+        print("$i ")
+    for(i in 1 until 10)
+        print("$i ") //1 2 3 4 5 6 7 8 9
+
+    val ints = listOf<Int>(10,20,30,40)
+    if(30 in ints){
+        println("this number exist in the list")
+    }
+    if(30 !in ints){
+        println("this number not exist in the list")
+    }
+
+    //step
+    for(i in 0..10 step 2)
+        print("$i ") //0 2 4 6 8 10
+    for(i in 10 downTo 0 step 2)
+        print("$i ") //10 8 6 4 2 0
 }
 ```
