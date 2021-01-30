@@ -94,17 +94,20 @@ class Dog extends Animal{
   set legs(value) => _legs = value;
   int get legs => _legs;
 }
-=======
+
+======================================
+
+//dart do not have declaring interface as java, kotlin
 abstract class Animal{
   void eat();
-}
+} 
 
 abstract class DocYellow{
   int speed;
   void walk();
 }
 
-class Dog extends DocYellow with Animal{
+class Dog extends DocYellow with Animal{ //with <=> implements
   int _legs; //private
 
   set legs(value) => _legs = value;
