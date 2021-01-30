@@ -67,3 +67,57 @@ void main() {
   );
 }
 ```
+
+# Final, Const, Map
+```dart
+final List<int> someNumbers = [1,2,3];
+  someNumbers.add(4);//can add more items to a final list. In const list, cannot do that
+  someNumbers[1] = 10;//can update item's value in a list(final). In const list, cannot do that
+  List<int> someNumbers2 = someNumbers;
+  someNumbers2.add(5);//can add more items to a final list. In const list, cannot do that
+
+  //Map dynamic <=> Object
+  Map<String, dynamic> person = Map();
+  person["name"] = "TEO";
+  person["age"] = 20;
+```
+
+# Setter, Getter, abstract, interface
+```dart
+class Animal{
+  void eat(){}
+}
+
+class Dog extends Animal{
+  int _legs; //private
+
+  set legs(value) => _legs = value;
+  int get legs => _legs;
+}
+=======
+abstract class Animal{
+  void eat();
+}
+
+abstract class DocYellow{
+  int speed;
+  void walk();
+}
+
+class Dog extends DocYellow with Animal{
+  int _legs; //private
+
+  set legs(value) => _legs = value;
+  int get legs => _legs;
+
+  @override
+  void eat() {
+    // TODO: implement eat
+  }
+
+  @override
+  void walk() {
+    // TODO: implement walk
+  }
+}
+```
